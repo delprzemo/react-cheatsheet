@@ -637,3 +637,25 @@ Use it in child component outside render function:
 static contextType = ColorContext;
 let value = this.context.value
 ```
+
+
+TypeScript in React
+=================
+
+## Add to project commands
+
+`npx create-react-app my-app --typescript` - new app with TypeScript
+`npm install --save typescript @types/node @types/react @types/react-dom @types/jest` - add TypeScript to existing project
+`npx tsc --init` - init tsconfig
+
+## Add type for custom DOM element
+
+```ts
+declare namespace JSX {
+    interface IntrinsicElements {foo: any}
+}
+<foo />; // ok
+<bar />; // error
+``
+
+
