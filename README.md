@@ -111,6 +111,63 @@ export default App;
 <Welcome name="Sara" />
 ```
 
+## Events
+
+event in element:
+```jsx
+<a href="#" onClick={this.onClick}> Click me </a>
+```
+
+onClick function:
+```jsx
+onClick(e) {
+    e.preventDefault();
+    // some logic here
+}
+
+```
+
+**Access to "this" inside event:**
+
+1. bind this
+```js
+this.onClick = this.onClick.bind(this);
+```
+
+2. Arrow function 
+```js
+onClick = (e) => {
+    e.preventDefault();
+    console.log(this);
+}
+```
+
+or
+
+```jsx
+ <a href="#" onClick={(e) => this.onClick(e)}> Click me</a>
+```
+
+**Child event**
+
+Child component (somewhere in code):
+```js
+this.props.onChange(val1, val2,...)
+```
+
+Parent component: 
+
+```jsx
+ <Child 
+   onChange={hasChanged} />
+```
+
+```js
+function hasChanged(val1, val2,...) {
+ // some logic here
+}
+```
+
 Routing
 =================
 Router will be described for react-router-dom library, which I can recommend. 
