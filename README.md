@@ -215,6 +215,32 @@ const listItems = numbers.map((numer, index) =>
 ```
 Then just use listItems element in your jsx DOM
 
+## Content projection
+
+Content projection is inject some html from parent component to child component
+
+Example:
+
+Parent component:
+```jsx
+<MyElement><h1>Hello world</h1></MyElement>
+```
+
+Child (MyElement) component:
+
+```jsx
+<div>
+	{this.props.children}
+</div>
+```
+
+`<h1>Hello world</h1>` will be injected to place where `{this.props.children}`, so MyElement will look like:
+
+```jsx
+<div>
+	<h1>Hello world</h1>
+</div>
+```
 
 
 Routing
