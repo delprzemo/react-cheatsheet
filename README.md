@@ -57,3 +57,56 @@ Not only string values can be injected into DOM. Result of above case will be di
   const element = <img src={user.avatarUrl}></img>;
 ```
 JavaScript code can be also called for DOM element properites/events
+
+
+Components
+=================
+
+"React lets you define components as classes or functions. Components defined as classes currently provide more features which are described in detail on this page"
+
+## Function component
+
+Sample component:
+```jsx
+function App() {
+  return <div>Hello World</div>;
+}
+export default App;
+```
+
+Sample component with parameters:
+
+```js
+function Welcome(props) {
+    return <h1>Hello, {props.name}</h1>;
+}
+```
+```js
+<Welcome name="Sara" />
+```
+
+## Class component
+
+Sample component:
+```js
+class App extends React.Component  {
+  render() {
+    return <div>Hello World</div>;
+  }
+}
+export default App;
+```
+
+Sample component with parameters:
+
+```js
+class Welcome extends React.Component  {
+  render() {
+    return <div>Hello {this.props.name}</div>;
+  }
+}
+export default App;
+```
+```js
+<Welcome name="Sara" />
+```
