@@ -349,5 +349,32 @@ componentWillUnmount() {
 }
 ```
 
+Forms
+=================
 
+Sample form:
 
+```js
+onValueChange  = (event) => {
+    this.setState({ value:  event.target.value  });
+}
+```
+```js
+onSubmit = (e) => {
+	e.preventDefault();
+	// Submit logic
+}
+
+```
+```jsx
+<form onSubmit={this.handleSubmit}>
+    <input type="text"
+        value={this.state.value}
+        onChange={this.onValueChange}
+    />
+    
+    <input type="submit" value="Send" />
+</form>
+```
+
+Validation is described here: https://webfellas.tech/#/article/5
