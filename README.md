@@ -194,3 +194,54 @@ Then instead of Route use PrivateRoute
 ```jsx
 <PrivateRoute path="/list" component={List}></PrivateRoute>
 ```
+
+
+State and life cycle
+=================
+
+## State
+The state decides about the update to a component’s object. When state changes, the component is re-rendered.
+
+Declaring initial state: 
+```js
+constructor() {
+    this.state = { userId: 2, userName: "Jannice"};
+}
+```
+
+Using state:
+```jsx
+<div> this.state.date </div>
+```
+
+Updating state:
+```js
+this.setState({ userId: 3, userName: "Tom"});
+```
+After setState component will be re-rendered 
+
+## Life cycle
+
+| Life cycle  | Notes | 
+| ------------- | ------------- | 
+| componentDidMount | Called atthe beggining of component life - when component has been rendered |
+| componentWillUnmount | This method is called before the unmounting of the component takes place.  |
+| componentWillUpdate | Before re-rendering component (after change)  |
+| componentDidUpdate | After re-rendering component (after change)  |
+| shouldComponentUpdate | Deterimines whether component should be updated after change or not  |
+
+Example:
+```jsx
+componentDidMount() {
+    console.log("componentDidMount")
+    // some logic here
+}
+
+componentWillUnmount() {
+    console.log("componentWillUnmount")
+    // some logic here
+}
+```
+
+
+
