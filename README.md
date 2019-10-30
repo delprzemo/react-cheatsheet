@@ -110,3 +110,35 @@ export default App;
 ```js
 <Welcome name="Sara" />
 ```
+
+Routing
+=================
+Router will be described for react-router-dom library, which I can recommend. 
+
+Install:
+```
+npm install react-router-dom 
+```
+
+Sample for area where components matching to current url will be rendered:
+
+```js
+<Router>
+   <Switch>
+     <Route path="/help"><Help /></Route>
+     <Route path="/list"><List /></Route>
+     <Route path="/"><Home /></Route>
+   </Switch>
+ </Router>
+
+```
+
+Link changing current url:
+
+```js
+<Link className="nav-link" to="/list">List</Link>
+```
+
+Tip: Route and Link need to be in same Router element
+
+## Nested routing
