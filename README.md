@@ -58,6 +58,27 @@ Not only string values can be injected into DOM. Result of above case will be di
 ```
 JavaScript code can be also called for DOM element properites/events
 
+## JSX - fragments
+JSX sytax must have one top parent HTML element. When we don't want pack our html into for example one div or other element then we can use `Fragment` which won't be rendered in our html
+
+Example:
+```jsx
+<React.Fragment>
+	<td>val1</td>
+	<td>val2</td>
+</React.Fragment>
+```
+
+or
+
+```jsx
+<>
+  <td>val1</td>
+  <td>val2</td>
+</>
+
+```
+
 
 Components
 =================
@@ -360,7 +381,9 @@ After setState component will be re-rendered
 | componentWillUnmount | This method is called before the unmounting of the component takes place.  |
 | componentWillUpdate | Before re-rendering component (after change)  |
 | componentDidUpdate | After re-rendering component (after change)  |
+| componentDidCatch | called when error has been thrown |
 | shouldComponentUpdate | Deterimines whether component should be updated after change or not  |
+
 
 Example:
 ```jsx
@@ -535,4 +558,42 @@ jest.mock("./SomeComponent", () => {
   };
 });
 
+```
+
+Context
+=================
+
+Context is a "bag" for some data common for node of components.
+
+Declare context:
+```js
+import React from 'react';
+export const ColorContext = React.createContext('red');
+```
+'red' is default value
+
+Create context and distribute it to child component:
+```jsx
+const { Provider } = ColorContext;
+return (
+    <Provider value={this.state.color}>
+    <SomeComponent />
+    </Provider>
+);
+```
+
+Use it in child component: 
+```jsx
+const { Consumer } = ColorContext;
+return (
+	<Consumer>
+		{value => <div>{value}</div>}
+	</Consumer>
+)
+```
+
+Use it in child component outside render function: 
+```jsx
+static contextType = ColorContext;
+let value = this.context.value
 ```
