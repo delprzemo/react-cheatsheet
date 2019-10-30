@@ -107,7 +107,7 @@ class Welcome extends React.Component  {
 }
 export default App;
 ```
-```js
+```jsx
 <Welcome name="Sara" />
 ```
 
@@ -122,7 +122,7 @@ npm install react-router-dom
 
 Sample for area where components matching to current url will be rendered:
 
-```js
+```jsx
 <Router>
    <Switch>
      <Route path="/help"><Help /></Route>
@@ -135,10 +135,62 @@ Sample for area where components matching to current url will be rendered:
 
 Link changing current url:
 
-```js
+```jsx
 <Link className="nav-link" to="/list">List</Link>
 ```
 
 Tip: Route and Link need to be in same Router element
 
 ## Nested routing
+
+Parent:
+```jsx
+<Route path="/some" component={SomeComponent}></Route>
+```
+
+SomeComponent: 
+```jsx
+function  SomeComponent({ match }) {
+    return (
+        <Router>
+            <Switch>
+                <Route path={`${match.path}/child`}><Child /></Route>
+            </Switch>
+        </Router>
+    )
+}
+```
+
+## Routing with parameters
+
+```jsx
+<Route path="/some/:id" component={SomeComponent}></Route>
+```
+
+and then in SomeComponent we have access to:
+
+```jsx
+{match.params.id}
+```
+
+## Authentication
+
+Good idea is to create custom Route component that will show specific component only when our authentication logic is passed:
+
+```jsx
+function PrivateRoute({ component: Component, ...rest }) {
+    return (
+        <Route {...rest} render={(props) => (_isAuthentictedLogic_) ?
+            (<Component {...props} />) :
+            (<Redirect to={{ pathname: "/noAccess", state: { from: props.location } }} />
+            )}
+        />
+    );
+}
+```
+
+Then instead of Route use PrivateRoute
+
+```jsx
+<PrivateRoute path="/list" component={List}></PrivateRoute>
+```
