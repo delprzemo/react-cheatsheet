@@ -404,3 +404,46 @@ onSubmit = (e) => {
 ```
 
 Validation is described here: https://webfellas.tech/#/article/5
+
+## Http requests
+
+There are a lot of ways to communicate with our backend API. One of them is to use axior library.
+
+Install:
+`npm install axios`
+
+Example with GET:
+```js
+axios.get('/user', {
+params: {ID: 12345}
+}).then(function (response) {
+	//some logic here
+})
+.catch(function (error) {
+	//some logic here
+})
+.finally(function () {
+	//some logic here
+}); 
+```
+
+Example with POST:
+```js
+axios.post('/user', {
+    firstName: 'Fred',
+    id: 2
+}).then(function (response) {
+	//some logic here
+})
+.catch(function (error) {
+	//some logic here
+});
+```
+
+Example with async call:
+```js
+const response = await axios.get('/user?ID=12345');
+```
+
+
+
