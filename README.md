@@ -405,7 +405,8 @@ onSubmit = (e) => {
 
 Validation is described here: https://webfellas.tech/#/article/5
 
-## Http requests
+Http requests
+=================
 
 There are a lot of ways to communicate with our backend API. One of them is to use axior library.
 
@@ -445,5 +446,93 @@ Example with async call:
 const response = await axios.get('/user?ID=12345');
 ```
 
+Tests
+=================
 
+Useful libs:
 
+`npm install --save-dev jest`  to run tests
+`npm install --save-dev @testing-library/react` Set of functions that may be useful for tests
+
+Sample tests:
+
+```jsx
+let container = null;
+beforeEach(() => {
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+afterEach(() => {
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+it("renders menu with Help", () => {
+  act(() => {
+    render(<Router><SomeComponent /></Router>, container);
+  });
+  expect(container.textContent).toBe("Some text inside");
+});
+
+```
+
+## Interaction
+
+Click on element:
+```js
+import { fireEvent } from '@testing-library/react'
+```
+```js
+fireEvent.click(container.querySelector('.some-class));
+```
+
+Change value in input:
+```js
+fireEvent.change(container.querySelector('.some-class)), {
+    target: { value: "12345" }
+});
+```
+
+Check if element contains class
+```js
+expect(someEl.classList.contains('disabled')).toBe(false);
+```
+
+## Mocking http
+
+`npm install axios-mock-adapter --save-dev`
+
+Example:
+```js
+var axios = require('axios');
+var MockAdapter = require('axios-mock-adapter');
+var mock = new MockAdapter(axios);
+
+```
+```js
+mock.onGet('/users').reply(200, {
+  users: [
+    { id: 1, name: 'John Smith' }
+  ]
+});
+```
+
+With specific parameter
+```js
+mock.onGet('/users', { params: { searchText: 'John' } }).reply()
+```
+
+## Mocking components
+Example:
+```js
+jest.mock("./SomeComponent", () => {
+  return function DummyComponent(props) {
+    return (
+      <div data-testid="square">
+        here is square
+      </div>
+    );
+  };
+});
+
+```
