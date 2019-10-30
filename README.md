@@ -24,7 +24,7 @@ JSX
 
 JSX allows us to write HTML elements in JavaScript and place them in the DOM. Basically, it converts HTML tags into react elements.
 
-## JSX - injection JS into HTML
+## Injection JS into HTML
 
 ```jsx
  const value = 'Hello world'
@@ -32,7 +32,7 @@ JSX allows us to write HTML elements in JavaScript and place them in the DOM. Ba
 ```
 'Hello world' will be injected and displyed inside `<div>` element
 
-## JSX - element declaration
+## Element declaration
 
 ```jsx
  const value = 'Hello World'
@@ -41,7 +41,7 @@ JSX allows us to write HTML elements in JavaScript and place them in the DOM. Ba
 ```
 We can assign specific DOM fragment to particular variable (element above) and then (re)use it everywhere.
 
-## JSX - function injection
+## Function injection
 
 ```jsx
  function addNumbers(x1, x2) {
@@ -51,14 +51,14 @@ We can assign specific DOM fragment to particular variable (element above) and t
 ```
 Not only string values can be injected into DOM. Result of above case will be div with 7 inside as addNumbers was injected into element.
 
-## JSX - attributes
+## Attributes
 ```jsx
   const avatarUrl = "img/picture.jpg"
   const element = <img src={user.avatarUrl}></img>;
 ```
 JavaScript code can be also called for DOM element properites/events
 
-## JSX - fragments
+## Fragments
 JSX sytax must have one top parent HTML element. When we don't want pack our html into for example one div or other element then we can use `Fragment` which won't be rendered in our html
 
 Example:
@@ -79,6 +79,25 @@ or
 
 ```
 
+### References
+We can refer to html element from JS
+
+1. Declare reference
+```js
+this.element = React.createRef();
+```
+
+2. Assign reference to element
+```jsx
+<div ref={this.element}></div>
+```
+
+3. Use reference to interact with element
+```js
+this.element.current.focus();
+```
+
+Tip: References works for class component but not for function component
 
 Components
 =================
@@ -262,6 +281,27 @@ Child (MyElement) component:
 	<h1>Hello world</h1>
 </div>
 ```
+
+## Higher order component
+Create a parameterized component
+
+Example:
+```jsx
+const myHoc = settings => WrappedComponent => {
+    return class DecoratingComponent extends React.Component {
+        render() {
+            return (<div className={settings}><WrappedComponent {...this.props} /></div>)
+        }
+    }
+}
+```
+
+Usage:
+```jsx
+const MyWrappedComponent = myHoc('test')(SomeComponent);
+<MyWrappedComponent/>
+```
+`test` will be injected into className 
 
 
 Routing
