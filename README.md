@@ -168,6 +168,55 @@ function hasChanged(val1, val2,...) {
 }
 ```
 
+## Conditional element
+
+Show element depending of implemented condition
+
+**Option 1:**
+```js
+function SomeElement(props) {
+   const show = props.isShowed;
+   if(show) {
+      return <div>Here is element</div>;
+   }         
+	}
+```
+then: 
+```jsx
+<SomeElement  isShowed  = {true} />
+```
+
+**Option 2:**
+```js
+let element;      
+if(this.state.isShow) {
+ element  = <div> Here is element </div>;
+} 
+```
+
+and then use element variable in jsx
+
+**Option 3:**
+```jsx
+{this.state.isShow  ?  <div> Here is element </div> : 'No element'}
+```
+
+## List of elements
+
+Recommended way to show list of same component is use "map" function, example:
+```js
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((numer, index) =>
+  <li key={number.toString()}>
+    {number}
+  </li>
+);
+
+```
+Then just use listItems element in your jsx DOM
+
+
+
 Routing
 =================
 Router will be described for react-router-dom library, which I can recommend. 
