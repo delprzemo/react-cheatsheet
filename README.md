@@ -786,28 +786,35 @@ Interview questions
 =================
 
 **Q: How can we declare the component??**
+
 A: Use class extending React.Component use function with React.FC type. 
 
 **Q: What is a difference between function component and class component?**
+
 A: Components defined as classes currently provide more features. Anyway, hooks can change that.
 
 **Q: In what type of component can we use hooks?**
+
 A: Function component
 
 **Q: How can we inject some html from parent component to child component?**
+
 A: Using content projection - > this.props.children will keep parent html element. 
 See [Content projection](https://github.com/delprzemo/react-cheatsheet#content-projection "content-projection") 
 
 **Q: Describe useEffect hook**
+
 A: UseEffect can replace componentDidMount, componentDidUpdate, componentWillUnmount and other life cycle component events.
 See [Basic hooks](https://github.com/delprzemo/react-cheatsheet#basic-hooks "Basic-hooks") 
 
 **Q: What is the difference between state and props??**
+
 A: The state decides about the update to a component’s object. When state changes, the component is re-rendered.
 Props are parameters passed from parent component to child component. 
 
 **Q: What is a higher order component??**
-A: Basically its's parametrized component.
+
+A: Basically its's parametrized component. It allows to reuse particular component in many ways.
 Sample implementation:
 ```jsx
 const myHoc = settings => WrappedComponent => {
@@ -826,17 +833,14 @@ const MyWrappedComponent = myHoc('test')(SomeComponent);
 ```
 
 **Q: What is JSX?**
+
 A: JSX allows us to write HTML elements in JavaScript and place them in the DOM. Basically, it converts HTML tags into react elements. See [JSX](https://github.com/delprzemo/react-cheatsheet#JSX "JSX") 
 
-**Q: What?**
-A: Answer
+**Q: How can we create new react app?**
 
-**Q: What?**
-A: Answer
+A: Using command `npx create-react-app {app name}`
 
-**Q: What?**
-A: Answer
+**Q: What will be result of`npm eject`?**
+A: Webpack for React application won't be handled automatically anymore. We will have access to Webpack configuration files in order to cusomize it to our needs. 
 
-**Q: What?**
-A: Answer
 
