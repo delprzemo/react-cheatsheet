@@ -143,7 +143,7 @@ Tip: References works for class component but not for function component
 Components
 =================
 
-"React lets you define components as classes or functions. Components defined as classes currently provide more features which are described in detail on this page"
+"React lets you define components as classes or functions. Components defined as classes currently provide more features"
 
 ## Function component
 
@@ -779,8 +779,64 @@ declare namespace JSX {
 }
 <foo />; // ok
 <bar />; // error
-``
+```
 
 
+Interview questions
+=================
 
+**Q: How can we declare the component??**
+A: Use class extending React.Component use function with React.FC type. 
+
+**Q: What is a difference between function component and class component?**
+A: Components defined as classes currently provide more features. Anyway, hooks can change that.
+
+**Q: In what type of component can we use hooks?**
+A: Function component
+
+**Q: How can we inject some html from parent component to child component?**
+A: Using content projection - > this.props.children will keep parent html element. 
+See [Content projection](https://github.com/delprzemo/react-cheatsheet#content-projection "content-projection") 
+
+**Q: Describe useEffect hook**
+A: UseEffect can replace componentDidMount, componentDidUpdate, componentWillUnmount and other life cycle component events.
+See [Basic hooks](https://github.com/delprzemo/react-cheatsheet#basic-hooks "Basic-hooks") 
+
+**Q: What is the difference between state and props??**
+A: The state decides about the update to a component’s object. When state changes, the component is re-rendered.
+Props are parameters passed from parent component to child component. 
+
+**Q: What is a higher order component??**
+A: Basically its's parametrized component.
+Sample implementation:
+```jsx
+const myHoc = settings => WrappedComponent => {
+    return class DecoratingComponent extends React.Component {
+        render() {
+            return (<div className={settings}><WrappedComponent {...this.props} /></div>)
+        }
+    }
+}
+```
+
+usage: 
+```jsx
+const MyWrappedComponent = myHoc('test')(SomeComponent);
+<MyWrappedComponent/>
+```
+
+**Q: What is JSX?**
+A: JSX allows us to write HTML elements in JavaScript and place them in the DOM. Basically, it converts HTML tags into react elements. See [JSX](https://github.com/delprzemo/react-cheatsheet#JSX "JSX") 
+
+**Q: What?**
+A: Answer
+
+**Q: What?**
+A: Answer
+
+**Q: What?**
+A: Answer
+
+**Q: What?**
+A: Answer
 
