@@ -638,6 +638,88 @@ static contextType = ColorContext;
 let value = this.context.value
 ```
 
+Hooks
+=================
+Hooks let us use in functions React features dedicated previosuly for only classes, like state.
+
+
+## Basic hooks
+
+**useState hook:**
+Can replace state managment
+```js
+const [count, setCount] = useState(0);
+```
+`count` can be used to read data
+`0` is default value of count
+`setCount(10)` is function to change count state value
+
+**useEffect hook:**
+Can replace componentDidMount, componentDidUpdate, componentWillUnmount and other life cycle component events
+
+Instead of using componentDidMount, componentDidUpdate we can use useEffect hook like this:
+```js
+useEffect(() => {
+    document.title = `Clicked ${count}`;
+});
+```
+
+In ordere to act as componentWillUnmount:
+```js
+useEffect(() => {
+    return () => {/*unsubscribe*/};
+});
+```
+
+
+**useContext hook:**
+Hooks for context implementation. See [Context](https://github.com/delprzemo/react-cheatsheet#context "context") 
+
+Parent:
+```jsx
+const CounterContext = React.createContext(counter);
+
+function App() {
+  return (
+    <CounterContext.Provider value={10}>
+      <ChildComponent />
+    </CounterContext.Provider>
+  );
+}
+```
+
+Child:
+```jsx
+const counter = useContext(CounterContext);
+```
+
+## Other hooks
+
+| Hook  | Usage | Notes |
+| ------------- | ------------- | ------------- | 
+| useReducer | const [state, dispatch] = useReducer(reducer, initialArg, init); | Used for redux |
+| useCallback | const memoizedCallback = useCallback(() => {doSomething(a, b);},[a, b],); | Returns a memoized callback |
+| useMemo | const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]); | Returns a memoized value. |
+| useRef | const refContainer = useRef(initialValue); | Hooks for element reference |
+| useDebugValue | useDebugValue(value) | Display information in React DevTools |
+
+## Custom hook
+Custom hooks can be created.
+Sample implementation:
+```jsx
+function useColor(initialColor) {
+    const [color, changeColor] = useState(initialColor);
+    function change(color) {
+        changeColor(color);
+    }
+    useEffect(() => {
+        console.log('Color changed');
+    });
+    return [color, change];
+}
+
+```
+
 
 TypeScript in React
 =================
@@ -657,5 +739,7 @@ declare namespace JSX {
 <foo />; // ok
 <bar />; // error
 ``
+
+
 
 
