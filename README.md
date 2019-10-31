@@ -9,11 +9,11 @@ Cheatsheet was created by https://foreach.pl trainers for their students.
    * [Basic React commands](#Basic-React-commands)
    * [JSX](#JSX)
       * [Injection JS into HTML](#Injection-JS-into-HTML)
-      * [Element declaration](#Element-declarationd)
+      * [Element declaration](#Element-declaration)
       * [Function injection](#Function-injection)
       * [Attributes](#Attributes)
       * [Fragments](#Fragments)
-      * [References](#Fragments)
+      * [References](#References)
    * [Components](#Components)
       * [Function component](#Function-component)
       * [Class component](#Class-component)
@@ -43,7 +43,7 @@ Cheatsheet was created by https://foreach.pl trainers for their students.
    * [TypeScript in React](#TypeScript-in-React)
       * [Add to project commands](#Add-to-project-commands)
       * [Add type for custom DOM element](#Add-type-for-custom-DOM-element)
-
+   * [Interview questions](#Interview-questions)
 
 <!--te-->
 
@@ -148,7 +148,7 @@ Components
 ## Function component
 
 Sample component:
-```jsx
+```js
 function App() {
   return <div>Hello World</div>;
 }
@@ -162,7 +162,7 @@ function Welcome(props) {
     return <h1>Hello, {props.name}</h1>;
 }
 ```
-```js
+```jsx
 <Welcome name="Sara" />
 ```
 
@@ -230,7 +230,7 @@ or
 ```
 
 **Child event**
-
+We can call function in parent component from child component.
 Child component (somewhere in code):
 ```js
 this.props.onChange(val1, val2,...)
@@ -260,7 +260,7 @@ function SomeElement(props) {
    if(show) {
       return <div>Here is element</div>;
    }         
-	}
+}
 ```
 then: 
 ```jsx
@@ -271,7 +271,7 @@ then:
 ```js
 let element;      
 if(this.state.isShow) {
- element  = <div> Here is element </div>;
+    element  = <div> Here is element </div>;
 } 
 ```
 
@@ -284,7 +284,7 @@ and then use element variable in jsx
 
 ## List of elements
 
-Recommended way to show list of same component is use "map" function, example:
+Recommended way to show list of same component is use "map" function. Example:
 ```js
 const numbers = [1, 2, 3, 4, 5];
 const listItems = numbers.map((numer, index) =>
@@ -294,7 +294,7 @@ const listItems = numbers.map((numer, index) =>
 );
 
 ```
-Then just use listItems element in your jsx DOM
+Then just use `listItems` element in your jsx DOM
 
 ## Content projection
 
@@ -308,7 +308,6 @@ Parent component:
 ```
 
 Child (MyElement) component:
-
 ```jsx
 <div>
 	{this.props.children}
@@ -324,7 +323,7 @@ Child (MyElement) component:
 ```
 
 ## Higher order component
-Create a parameterized component
+Create a parameterized component in order to reuse it in different ways.
 
 Example:
 ```jsx
@@ -658,13 +657,13 @@ Create context and distribute it to child component:
 const { Provider } = ColorContext;
 return (
     <Provider value={this.state.color}>
-    <SomeComponent />
+    	<SomeComponent />
     </Provider>
 );
 ```
 
 Use it in child component: 
-```jsx
+```js
 const { Consumer } = ColorContext;
 return (
 	<Consumer>
@@ -674,7 +673,7 @@ return (
 ```
 
 Use it in child component outside render function: 
-```jsx
+```js
 static contextType = ColorContext;
 let value = this.context.value
 ```
@@ -686,7 +685,8 @@ Hooks let us use in functions React features dedicated previosuly for only class
 
 ## Basic hooks
 
-**useState hook:**
+**useState hook**
+
 Can replace state managment
 ```js
 const [count, setCount] = useState(0);
@@ -695,7 +695,8 @@ const [count, setCount] = useState(0);
 `0` is default value of count
 `setCount(10)` is function to change count state value
 
-**useEffect hook:**
+**useEffect hook**
+
 Can replace componentDidMount, componentDidUpdate, componentWillUnmount and other life cycle component events
 
 Instead of using componentDidMount, componentDidUpdate we can use useEffect hook like this:
@@ -713,7 +714,8 @@ useEffect(() => {
 ```
 
 
-**useContext hook:**
+**useContext hook**
+
 Hooks for context implementation. See [Context](https://github.com/delprzemo/react-cheatsheet#context "context") 
 
 Parent:
@@ -787,7 +789,7 @@ Interview questions
 
 **Q: How can we declare the component??**
 
-A: Use class extending React.Component use function with React.FC type. 
+A: Use class extending React.Component or use function with React.FC type returning JSX. 
 
 **Q: What is a difference between function component and class component?**
 
@@ -840,7 +842,7 @@ A: JSX allows us to write HTML elements in JavaScript and place them in the DOM.
 
 A: Using command `npx create-react-app {app name}`
 
-**Q: What will be result of`npm eject`?**
+**Q: What will be result of `npm eject`?**
 A: Webpack for React application won't be handled automatically anymore. We will have access to Webpack configuration files in order to cusomize it to our needs. 
 
 
