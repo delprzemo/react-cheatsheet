@@ -5,6 +5,31 @@ Cheatsheet was created by https://foreach.pl trainers for their students.
 
 # Table of Contents
 
+<!--ts-->
+   * [Basic React commands](#Basic-React-commands)
+   * [JSX](#JSX)
+      * [Injection JS into HTML](#Injection-JS-into-HTML)
+      * [Element declaration](#Element-declarationd)
+      * [Function injection](#Function-injection)
+      * [Attributes](#Attributes)
+      * [Fragments](#Fragments)
+      * [References](#Fragments)
+   * [Classes](#Classes)
+      * [Inheritance](#Inheritance)
+   * [Classes](#Classes)
+      * [Inheritance](#Inheritance)
+   * [Classes](#Classes)
+      * [Inheritance](#Inheritance)
+   * [Classes](#Classes)
+      * [Inheritance](#Inheritance)
+   * [Classes](#Classes)
+      * [Inheritance](#Inheritance)
+   * [Classes](#Classes)
+      * [Inheritance](#Inheritance)
+   * [Classes](#Classes)
+      * [Inheritance](#Inheritance)
+
+<!--te-->
 
  Basic React commands
 =================
@@ -79,7 +104,7 @@ or
 
 ```
 
-### References
+## References
 We can refer to html element from JS
 
 1. Declare reference
