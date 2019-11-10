@@ -272,7 +272,7 @@ then:
 **Option 2:**
 ```js
 let element;      
-if(this.state.isShow) {
+if(this.state.isShown) {
     element  = <div> Here is element </div>;
 } 
 ```
