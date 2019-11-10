@@ -95,7 +95,7 @@ Not only string values can be injected into DOM. The result of the above case wi
 ## Attributes
 ```jsx
   const avatarUrl = "img/picture.jpg"
-  const element = <img src={user.avatarUrl}></img>;
+  const element = <img src={avatarUrl}></img>;
 ```
 JavaScript code can be also called for DOM element properties/events
 
@@ -217,7 +217,7 @@ There are a few ways to achieve that:
 this.onClick = this.onClick.bind(this);
 ```
 
-2. Arrow function 
+2. Arrow function. For arrow function, you don't have to perform binding because arrow functions are performing this binding by themselves by referring to this with `_this` variable `_this = this`
 ```js
 onClick = (e) => {
     e.preventDefault();
@@ -296,7 +296,8 @@ const listItems = numbers.map((numer, index) =>
 );
 
 ```
-Then just use `listItems` element in your JSX DOM
+Then just use `listItems` element in your JSX DOM. 
+Please note `key` property inside - it is obligatory to identify particular row in list. 
 
 ## Content projection
 
