@@ -446,7 +446,7 @@ constructor() {
 
 Using state:
 ```jsx
-<div> this.state.date </div>
+<div> {this.state.date} </div>
 ```
 
 Updating state:
