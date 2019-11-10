@@ -1,7 +1,7 @@
 # React Cheatsheet
 Set of basic functionalities from React in one place. 
 
-Cheatsheet was created by https://foreach.pl trainers for their students.
+Cheatsheet has been created by https://foreach.pl trainers for training participants.
 
 # Table of Contents
 
@@ -850,6 +850,7 @@ A: JSX allows us to write HTML elements in JavaScript and place them in the DOM.
 A: Using command `npx create-react-app {app name}`
 
 **Q: What will be the result of `npm eject`?**
+
 A: Webpack for React application won't be handled automatically anymore. We will have access to Webpack configuration files in order to customize it to our needs. 
 
 
