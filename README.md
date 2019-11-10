@@ -53,7 +53,7 @@ Cheatsheet was created by https://foreach.pl trainers for their students.
 | Command  | Notes | 
 | ------------- | ------------- | 
 | npx create-react-app {app name} | Create new React app |
-| npm run build  | Build React app - create folder with files ready for deployment | 
+| npm run build  | Build React app - create a folder with files ready for deployment | 
 | npm start  | Run project locally | 
 | npm test  | run tests in React app |
 | npm eject | remove the single build dependency from your project |
@@ -68,19 +68,19 @@ JSX allows us to write HTML elements in JavaScript and place them in the DOM. Ba
 ## Injection JS into HTML
 
 ```jsx
- const value = 'Hello world'
- return ( <div>{value}</div>);
+ const value = 'Hello world';
+ return (<div>{value}</div>);
 ```
-'Hello world' will be injected and displyed inside `<div>` element
+'Hello world' will be injected and displayed inside `<div>` element
 
 ## Element declaration
 
 ```jsx
- const value = 'Hello World'
- const element = <div className="App">{value}</div>
+ const value = 'Hello World';
+ const element = <div className="App">{value}</div>;
  return (element);
 ```
-We can assign specific DOM fragment to particular variable (element above) and then (re)use it everywhere.
+We can assign specific DOM fragments to a particular variable (element above) and then (re)use it everywhere.
 
 ## Function injection
 
@@ -90,23 +90,23 @@ We can assign specific DOM fragment to particular variable (element above) and t
  }
  const element = <div className="App">{addNumbers(2, 5)}</div>
 ```
-Not only string values can be injected into DOM. Result of above case will be div with 7 inside as addNumbers was injected into element.
+Not only string values can be injected into DOM. The result of the above case will be div with 7 inside it as addNumbers was injected into an element.
 
 ## Attributes
 ```jsx
   const avatarUrl = "img/picture.jpg"
   const element = <img src={user.avatarUrl}></img>;
 ```
-JavaScript code can be also called for DOM element properites/events
+JavaScript code can be also called for DOM element properties/events
 
 ## Fragments
-JSX sytax must have one top parent HTML element. When we don't want pack our html into for example one div or other element then we can use `Fragment` which won't be rendered in our html
+JSX syntax must have one top parent HTML element. When we don't want to pack our HTML into (for example) one div or other elements then we can use `fragment` which won't be rendered in our HTML
 
 Example:
 ```jsx
 <React.Fragment>
-	<td>val1</td>
-	<td>val2</td>
+   <td>val1</td>
+   <td>val2</td>
 </React.Fragment>
 ```
 
@@ -123,12 +123,12 @@ or
 ## References
 We can refer to html element from JS
 
-1. Declare reference
+1. Declare a reference
 ```js
 this.element = React.createRef();
 ```
 
-2. Assign reference to element
+2. Assign a reference to element
 ```jsx
 <div ref={this.element}></div>
 ```
@@ -138,7 +138,7 @@ this.element = React.createRef();
 this.element.current.focus();
 ```
 
-Tip: References works for class component but not for function component
+Tip: References works for the class component but not for function component
 
 Components
 =================
@@ -178,7 +178,7 @@ class App extends React.Component  {
 export default App;
 ```
 
-Sample component with parameters:
+Sample component with the parameters:
 
 ```js
 class Welcome extends React.Component  {
@@ -194,7 +194,7 @@ export default App;
 
 ## Events
 
-event in element:
+Sample `onClick` event in an element:
 ```jsx
 <a href="#" onClick={this.onClick}> Click me </a>
 ```
@@ -209,6 +209,8 @@ onClick(e) {
 ```
 
 **Access to "this" inside event:**
+
+There are a few ways to achieve that: 
 
 1. bind this
 ```js
@@ -230,17 +232,17 @@ or
 ```
 
 **Child event**
-We can call function in parent component from child component.
+
+We can call a function in parent component from the child component.
+
 Child component (somewhere in code):
 ```js
 this.props.onChange(val1, val2,...)
 ```
 
 Parent component: 
-
 ```jsx
- <Child 
-   onChange={hasChanged} />
+ <Child onChange={hasChanged} />
 ```
 
 ```js
@@ -251,7 +253,7 @@ function hasChanged(val1, val2,...) {
 
 ## Conditional element
 
-Show element depending of implemented condition
+Show element depending on the implemented condition
 
 **Option 1:**
 ```js
@@ -264,7 +266,7 @@ function SomeElement(props) {
 ```
 then: 
 ```jsx
-<SomeElement  isShowed  = {true} />
+<SomeElement isShowed = {true} />
 ```
 
 **Option 2:**
@@ -275,7 +277,7 @@ if(this.state.isShow) {
 } 
 ```
 
-and then use element variable in jsx
+and then use the element variable in jsx
 
 **Option 3:**
 ```jsx
@@ -284,7 +286,7 @@ and then use element variable in jsx
 
 ## List of elements
 
-Recommended way to show list of same component is use "map" function. Example:
+The recommended way to show a list of the same components is to use the "map" function. Example:
 ```js
 const numbers = [1, 2, 3, 4, 5];
 const listItems = numbers.map((numer, index) =>
@@ -294,11 +296,11 @@ const listItems = numbers.map((numer, index) =>
 );
 
 ```
-Then just use `listItems` element in your jsx DOM
+Then just use `listItems` element in your JSX DOM
 
 ## Content projection
 
-Content projection is inject some html from parent component to child component
+Content projection is injecting some HTML from parent component to child component
 
 Example:
 
@@ -310,15 +312,15 @@ Parent component:
 Child (MyElement) component:
 ```jsx
 <div>
-	{this.props.children}
+   {this.props.children}
 </div>
 ```
 
-`<h1>Hello world</h1>` will be injected to place where `{this.props.children}`, so MyElement will look like:
+`<h1>Hello world</h1>` will be injected to place where `{this.props.children}` has been used, so MyElement will look like:
 
 ```jsx
 <div>
-	<h1>Hello world</h1>
+   <h1>Hello world</h1>
 </div>
 ```
 
@@ -346,14 +348,14 @@ const MyWrappedComponent = myHoc('test')(SomeComponent);
 
 Routing
 =================
-Router will be described for react-router-dom library, which I can recommend. 
+The Router will be described with react-router-dom library usage, which is often recommended.
 
 Install:
 ```
 npm install react-router-dom 
 ```
 
-Sample for area where components matching to current url will be rendered:
+Sample presenting an area where components matching to current URL will be rendered:
 
 ```jsx
 <Router>
@@ -382,7 +384,7 @@ Parent:
 ```
 
 SomeComponent: 
-```jsx
+```js
 function  SomeComponent({ match }) {
     return (
         <Router>
@@ -408,7 +410,7 @@ and then in SomeComponent we have access to:
 
 ## Authentication
 
-Good idea is to create custom Route component that will show specific component only when our authentication logic is passed:
+Good idea is to create a custom Route component that will show specific component only when our authentication logic is passed:
 
 ```jsx
 function PrivateRoute({ component: Component, ...rest }) {
@@ -457,12 +459,12 @@ After setState component will be re-rendered
 
 | Life cycle  | Notes | 
 | ------------- | ------------- | 
-| componentDidMount | Called atthe beggining of component life - when component has been rendered |
+| componentDidMount | Called at the beginning of component life - when a component has been rendered |
 | componentWillUnmount | This method is called before the unmounting of the component takes place.  |
 | componentWillUpdate | Before re-rendering component (after change)  |
 | componentDidUpdate | After re-rendering component (after change)  |
-| componentDidCatch | called when error has been thrown |
-| shouldComponentUpdate | Deterimines whether component should be updated after change or not  |
+| componentDidCatch | Called when an error has been thrown|
+| shouldComponentUpdate | Determines whether a component should be updated after a change or not  |
 
 
 Example:
@@ -511,7 +513,7 @@ Validation is described here: https://webfellas.tech/#/article/5
 Http requests
 =================
 
-There are a lot of ways to communicate with our backend API. One of them is to use axior library.
+There are a lot of ways to communicate with our backend API. One of them is to use Axios library.
 
 Install:
 `npm install axios`
@@ -521,13 +523,13 @@ Example with GET:
 axios.get('/user', {
 params: {ID: 12345}
 }).then(function (response) {
-	//some logic here
+   //some logic here
 })
 .catch(function (error) {
-	//some logic here
+   //some logic here
 })
 .finally(function () {
-	//some logic here
+   //some logic here
 }); 
 ```
 
@@ -537,10 +539,10 @@ axios.post('/user', {
     firstName: 'Fred',
     id: 2
 }).then(function (response) {
-	//some logic here
+    //some logic here
 })
 .catch(function (error) {
-	//some logic here
+    //some logic here
 });
 ```
 
@@ -555,7 +557,8 @@ Tests
 Useful libs:
 
 `npm install --save-dev jest`  to run tests
-`npm install --save-dev @testing-library/react` Set of functions that may be useful for tests
+
+`npm install --save-dev @testing-library/react` set of functions that may be useful for tests in React
 
 Sample tests:
 
@@ -666,9 +669,9 @@ Use it in child component:
 ```js
 const { Consumer } = ColorContext;
 return (
-	<Consumer>
-		{value => <div>{value}</div>}
-	</Consumer>
+   <Consumer>
+	{value => <div>{value}</div>}
+   </Consumer>
 )
 ```
 
@@ -680,7 +683,7 @@ let value = this.context.value
 
 Hooks
 =================
-Hooks let us use in functions React features dedicated previosuly for only classes, like state.
+Hooks let us use in functions React features dedicated previously for only classes, like state.
 
 
 ## Basic hooks
@@ -692,12 +695,14 @@ Can replace state managment
 const [count, setCount] = useState(0);
 ```
 `count` can be used to read data
-`0` is default value of count
-`setCount(10)` is function to change count state value
+
+`0` is the default value for count
+
+`setCount(10)` is a function to change count state value
 
 **useEffect hook**
 
-Can replace componentDidMount, componentDidUpdate, componentWillUnmount and other life cycle component events
+Can replace `componentDidMount`, `componentDidUpdate`, `componentWillUnmount` and other life cycle component events
 
 Instead of using componentDidMount, componentDidUpdate we can use useEffect hook like this:
 ```js
@@ -706,7 +711,7 @@ useEffect(() => {
 });
 ```
 
-In ordere to act as componentWillUnmount:
+In order to act as componentWillUnmount:
 ```js
 useEffect(() => {
     return () => {/*unsubscribe*/};
@@ -770,7 +775,9 @@ TypeScript in React
 ## Add to project commands
 
 `npx create-react-app my-app --typescript` - new app with TypeScript
+
 `npm install --save typescript @types/node @types/react @types/react-dom @types/jest` - add TypeScript to existing project
+
 `npx tsc --init` - init tsconfig
 
 ## Add type for custom DOM element
@@ -799,7 +806,7 @@ A: Components defined as classes currently provide more features. Anyway, hooks 
 
 A: Function component
 
-**Q: How can we inject some html from parent component to child component?**
+**Q: How can we inject some HTML from parent component to child component?**
 
 A: Using content projection - > this.props.children will keep parent html element. 
 See [Content projection](https://github.com/delprzemo/react-cheatsheet#content-projection "content-projection") 
@@ -814,9 +821,9 @@ See [Basic hooks](https://github.com/delprzemo/react-cheatsheet#basic-hooks "Bas
 A: The state decides about the update to a component’s object. When state changes, the component is re-rendered.
 Props are parameters passed from parent component to child component. 
 
-**Q: What is a higher order component??**
+**Q: What is a higher-order component??**
 
-A: Basically its's parametrized component. It allows to reuse particular component in many ways.
+A: Basically its's parameterized component. It allows reusing of a particular component in many ways.
 Sample implementation:
 ```jsx
 const myHoc = settings => WrappedComponent => {
@@ -842,7 +849,7 @@ A: JSX allows us to write HTML elements in JavaScript and place them in the DOM.
 
 A: Using command `npx create-react-app {app name}`
 
-**Q: What will be result of `npm eject`?**
-A: Webpack for React application won't be handled automatically anymore. We will have access to Webpack configuration files in order to cusomize it to our needs. 
+**Q: What will be the result of `npm eject`?**
+A: Webpack for React application won't be handled automatically anymore. We will have access to Webpack configuration files in order to customize it to our needs. 
 
 
