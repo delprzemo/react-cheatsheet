@@ -471,6 +471,10 @@ After setState component will be re-rendered
 | componentDidUpdate | After re-rendering component (after change)  |
 | componentDidCatch | Called when an error has been thrown|
 | shouldComponentUpdate | Determines whether a component should be updated after a change or not  |
+| getDerivedStateFromProps | Called at the beginning of component life and when props/state will change |
+| getSnapshotBeforeUpdate| Called just before rerendering component - in order to save state|
+
+**Note** Deprecation alert for componentWillUnmount and componentWillUpdate. This can cause memory leaks for server rendering. 
 
 
 Example:
