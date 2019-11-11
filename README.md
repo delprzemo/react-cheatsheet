@@ -284,6 +284,11 @@ and then use the element variable in jsx
 {this.state.isShow  ?  <div> Here is element </div> : 'No element'}
 ```
 
+**Option 4:**
+```jsx
+{this.state.isShow  &&  <div> Here is element </div>}
+```
+
 ## List of elements
 
 The recommended way to show a list of the same components is to use the "map" function. Example:
