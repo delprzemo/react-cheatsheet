@@ -1,3 +1,5 @@
+Note! Leave a :star: if you like it. When cheatsheet will reach 500 stars then I will create next one for Redux for you :nerd_face:
+
 # React Cheatsheet
 Set of basic functionalities from React in one place. 
 
