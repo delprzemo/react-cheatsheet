@@ -3,6 +3,13 @@ Set of basic functionalities from React in one place.
 
 Cheatsheet has been created by https://foreach.pl trainers for training participants.
 
+**Check also other Cheatsheets:**
+
+[Angular](https://github.com/delprzemo/angular-cheatsheet)
+
+[TypeScript](https://github.com/delprzemo/typescript-cheatsheet)
+
+
 # Table of Contents
 
 <!--ts-->
